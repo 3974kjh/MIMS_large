@@ -1,0 +1,129 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="imageicon\1.PNG" />
+    <None Remove="imageicon\2.PNG" />
+    <None Remove="imageicon\3.PNG" />
+    <None Remove="imageicon\4.PNG" />
+    <None Remove="imageicon\background2.png" />
+    <None Remove="imageicon\btn_com_check_normal.png" />
+    <None Remove="imageicon\btn_com_check_normal_disable.png" />
+    <None Remove="imageicon\btn_com_check_normal_hover.png" />
+    <None Remove="imageicon\btn_com_check_normal_press.png" />
+    <None Remove="imageicon\btn_com_check_select_disable.png" />
+    <None Remove="imageicon\btn_com_check_select_hover.png" />
+    <None Remove="imageicon\btn_com_check_select_normal.png" />
+    <None Remove="imageicon\btn_com_check_select_press.png" />
+    <None Remove="imageicon\btn_leftbtn.png" />
+    <None Remove="imageicon\btn_rightbtn.png" />
+    <None Remove="imageicon\btn_search.png" />
+    <None Remove="imageicon\imagedownload1.PNG" />
+    <None Remove="imageicon\inside.png" />
+    <None Remove="imageicon\OneVueIcon.png" />
+    <None Remove="imageicon\OneVueIconRotated.png" />
+    <None Remove="imageicon\OneVueIconRotated123.png" />
+    <None Remove="imageicon\outside.png" />
+    <None Remove="imageicon\Paging_Book.png" />
+    <None Remove="imageicon\Paging_Multi.png" />
+    <None Remove="imageicon\Paging_original.png" />
+    <None Remove="imageicon\Paging_updown.png" />
+    <None Remove="imageicon\titleicon.png" />
+    <None Remove="imageicon\삭제1.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+    <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="imageicon\1.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\2.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\3.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\4.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\btn_com_check_normal.png" />
+    <Resource Include="imageicon\btn_com_check_normal_disable.png" />
+    <Resource Include="imageicon\btn_com_check_normal_hover.png" />
+    <Resource Include="imageicon\btn_com_check_normal_press.png" />
+    <Resource Include="imageicon\btn_com_check_select_disable.png" />
+    <Resource Include="imageicon\btn_com_check_select_hover.png" />
+    <Resource Include="imageicon\btn_com_check_select_normal.png" />
+    <Resource Include="imageicon\btn_com_check_select_press.png" />
+    <Resource Include="imageicon\btn_leftbtn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\btn_rightbtn.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\btn_search.png" />
+    <Resource Include="imageicon\imagedownload1.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\inside.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\OneVueIcon.png" />
+    <Resource Include="imageicon\OneVueIconRotated.png" />
+    <Resource Include="imageicon\OneVueIconRotated123.png" />
+    <Resource Include="imageicon\outside.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\Paging_Book.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\Paging_Multi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\Paging_original.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\Paging_updown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\titleicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="imageicon\삭제1.PNG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Behavior\" />
+  </ItemGroup>
+
+</Project>

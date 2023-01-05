@@ -1,0 +1,154 @@
+﻿ syntax = "proto3";
+  
+ option csharp_namespace = "Common";
+
+ import "google/protobuf/empty.proto";
+ import "google/api/annotations.proto";
+ import "google/protobuf/timestamp.proto";
+
+ package ecommerce;
+
+service OsstemSimpleGrpcService
+{
+    rpc SendMessage (RequestMessage) returns (ReplyMessage) 
+    {
+        option (google.api.http) = {
+          get: "/v1/send_message/{requestPayload}"      
+        };
+    }
+
+    rpc TestMessage (RequestMessage) returns (ReplyMessage) 
+    {
+        option (google.api.http) = {
+          get: "/v1/test_message"      
+        };
+    }
+
+    rpc GetPatientByKeyword(Keyword) returns (stream Patient)
+    {
+     option (google.api.http) = {
+          get: "/v1/PatientID/{word}"      
+        };
+    }
+}
+ 
+ message RequestMessage 
+ {
+   string requestPayload = 1;
+ }
+ message ReplyMessage
+ {
+   string responsePayload = 1;
+ }
+
+ message Keyword
+{
+    string word = 1;
+}
+
+message Patient
+{
+    int32 PatientNumber = 1;
+}
+
+
+service FileTransferGrpcService
+{
+    rpc DownloadFile (FileInfo) returns (stream BytesContent);
+    rpc UploadFile (stream BytesContent) returns (google.protobuf.Empty);
+}
+
+ 
+message FileInfo
+{
+    string FileName = 1;
+    int32 PatientNumber = 2;
+}
+ 
+message BytesContent
+{
+    string FileName = 1;
+    int32 Block = 2;
+    bytes Content = 3;
+    int32 CurrentSize = 4;
+    int32 TotalSize = 5;
+}
+
+//
+service SubscriberGrpService 
+{
+    rpc GetAnEvent(google.protobuf.Empty) returns (Event) {}
+	rpc Subscribe(Subscription) returns (stream Event) {}
+	rpc Unsubscribe(Subscription) returns (Unsubscription) {}
+}
+
+message Event
+{
+	string Value = 1;
+}
+message Subscription
+{
+	string Id = 1;
+}
+message Unsubscription
+{
+	string Id = 1;
+}
+
+message CheckId
+{
+    string ImageID = 1;
+}
+
+service AccountGrpcService
+{   
+    rpc GetNewPatientNumber(google.protobuf.Empty) returns (CurNumber){}; 
+    rpc GetPatientInfoListByPatientName(SearchKeyword) returns (PatientResponse){};
+    rpc InsertPatientInfo(PatientInfo) returns (google.protobuf.Empty);
+    rpc EditPatientInfo(PatientInfo) returns (google.protobuf.Empty);
+    rpc DeletePatientInfoList(Patient) returns (google.protobuf.Empty);
+    rpc InsertPortrait(FileInfo) returns (google.protobuf.Empty);
+    rpc InsertImageInfo(ImageInfo) returns (google.protobuf.Empty);
+    rpc GetTimageInfoList(Patient) returns (ImageResponse){};
+    rpc DeleteOneImageInfoLIst(CheckId) returns (google.protobuf.Empty);
+    rpc DeleteAllImageInfoLIst(Patient) returns (google.protobuf.Empty);
+}
+
+message ImageInfo
+{
+    int32 PatientNumber = 1;
+    int32 ImageCategory = 2;
+    string ImageID = 3;
+    string TImageID = 4;
+    string ImageDate = 5;
+}
+
+message PatientInfo
+{
+    int32 PatientNumber = 1;
+    string PatientName = 2;
+    string PatientResnum = 3;
+    string PatientPhonenum = 4;
+    string PatientImage = 5;
+    string PatientBirthday = 6;
+}
+
+message CurNumber
+{
+    int32 CurNum = 1;
+}
+
+message SearchKeyword
+{
+    string Keyword = 1;
+}
+
+message ImageResponse
+{
+    repeated ImageInfo Images = 1;
+}
+
+message PatientResponse
+{
+    repeated PatientInfo Patients = 1;
+}
